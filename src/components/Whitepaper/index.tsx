@@ -19,7 +19,7 @@ const Whitepaper = () => {
           <p className="py-6">
             Our whitepaper was written with the goal to share our vision of the
             product, and we hope you can get a grasp of it if you give it a
-            read. After reading it, consider becoming an active member of
+            read. After reading it, consider becoming an active member of{" "}
             <a className="link link-primary" href="/community">
               our community
             </a>
