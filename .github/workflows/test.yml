@@ -1,0 +1,25 @@
+name: Test React App
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14, 15, 16]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js version in matrix
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install, Build and Test
+        run: |
+          npm install
+          npm run build
+          npm run test      
