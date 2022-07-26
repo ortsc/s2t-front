@@ -31,7 +31,7 @@ export async function connectWallet(buttonId: string, connectedText: string) {
   } else {
     const button = document.getElementById(buttonId);
     if (button != null) {
-      button.textContent = "Web3 404";
+      button.textContent = "404";
       button.className = "btn btn-error";
     }
   }

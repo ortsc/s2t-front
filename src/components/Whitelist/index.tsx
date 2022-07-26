@@ -38,12 +38,45 @@ const Whitelist = () => {
     }
   }
 
+  function successElement(id: string, successMessage: string) {
+    const button = document.getElementById(id);
+    if (button != null) {
+      button.textContent = "Joined";
+      button.className = "btn btn-success";
+    }
+  }
+
   function errorElement(id: string) {
     const button = document.getElementById(id);
     if (button != null) {
       button.textContent = "Error";
       button.className = "btn btn-error";
     }
+  }
+
+  function getValidIndicator(address: string) {
+    const indicator = query.get("indicator");
+    if (
+      indicator == null ||
+      !ethers.utils.isAddress(indicator) ||
+      indicator === address
+    ) {
+      return "0x0000000000000000000000000000000000000000";
+    }
+    return indicator;
+  }
+
+  async function getPostBody(
+    result: {
+      ans: string;
+      prov: ethers.providers.Web3Provider;
+    },
+    indicator: string
+  ) {
+    const signer = result.prov.getSigner();
+    const signature = await signer.signMessage(indicator);
+    const address = result.ans;
+    return { indicator: indicator, signature: signature, address: address };
   }
 
   const onJoinClick = async () => {
@@ -53,35 +86,17 @@ const Whitelist = () => {
       return;
     }
     loadingElement("joinWhitelistButton");
-    let indicator = query.get("indicator");
-    if (
-      indicator == null ||
-      !ethers.utils.isAddress(indicator) ||
-      indicator === result.ans
-    ) {
-      indicator = "0x0000000000000000000000000000000000000000";
-    }
+
+    const indicator = getValidIndicator(result.ans);
 
     try {
-      const signer = result.prov.getSigner();
-      const signature = await signer.signMessage(indicator);
-      const address = result.ans;
-
-      const body = {
-        indicator: indicator,
-        signature: signature,
-        address: address,
-      };
+      const body = await getPostBody(result, indicator);
 
       axios
         .post("http://localhost:5500/whitelist", body)
         .then(function (response) {
           if (response.status === 201) {
-            const button = document.getElementById("joinWhitelistButton");
-            if (button != null) {
-              button.textContent = "Joined";
-              button.className = "btn btn-success";
-            }
+            successElement("joinWhitelistButton", "Joined");
           } else {
             errorElement("joinWhitelistButton");
           }
