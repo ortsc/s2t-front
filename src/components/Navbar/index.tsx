@@ -28,8 +28,10 @@ const Navbar = () => {
             </Link>
             <button
               className="btn btn-outline"
-              id="connectWalletButton"
-              onClick={() => connectWallet("connectWalletButton", "Connected")}
+              id="button-connect-wallet"
+              onClick={() =>
+                connectWallet("button-connect-wallet", "Connected")
+              }
             >
               Connect Wallet
             </button>

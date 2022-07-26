@@ -16,17 +16,17 @@ const Whitelist = () => {
 
   async function copyTextToClipboard(text: string) {
     return new Promise((resolve, reject) => {
-      const _asyncCopyFn = async () => {
+      const asyncCopyText = async () => {
         try {
           const value = await navigator.clipboard.writeText(text);
           resolve(value);
         } catch (e) {
           reject(e);
         }
-        window.removeEventListener("focus", _asyncCopyFn);
+        window.removeEventListener("focus", asyncCopyText);
       };
 
-      window.addEventListener("focus", _asyncCopyFn);
+      window.addEventListener("focus", asyncCopyText);
     });
   }
 
@@ -80,12 +80,12 @@ const Whitelist = () => {
   }
 
   const onJoinClick = async () => {
-    loadingElement("joinWhitelistButton");
-    const result = await connectWallet("joinWhitelistButton", "Connected");
+    loadingElement("button-join-whitelist");
+    const result = await connectWallet("button-join-whitelist", "Connected");
     if (!result) {
       return;
     }
-    loadingElement("joinWhitelistButton");
+    loadingElement("button-join-whitelist");
 
     const indicator = getValidIndicator(result.ans);
 
@@ -96,24 +96,24 @@ const Whitelist = () => {
         .post("http://localhost:5500/whitelist", body)
         .then(function (response) {
           if (response.status === 201) {
-            successElement("joinWhitelistButton", "Joined");
+            successElement("button-join-whitelist", "Joined");
           } else {
-            errorElement("joinWhitelistButton");
+            errorElement("button-join-whitelist");
           }
         })
         .catch(function () {
-          errorElement("joinWhitelistButton");
+          errorElement("button-join-whitelist");
           return;
         });
     } catch {
-      errorElement("joinWhitelistButton");
+      errorElement("button-join-whitelist");
       return;
     }
   };
 
   const onGetLinkClick = async () => {
-    loadingElement("getLinkButton");
-    const result = await connectWallet("getLinkButton", "Copied");
+    loadingElement("button-get-link");
+    const result = await connectWallet("button-get-link", "Copied");
     if (result) {
       await copyTextToClipboard(
         `http://localhost:3000/whitelist?indicator=${result.ans}`
@@ -153,7 +153,7 @@ const Whitelist = () => {
             <div className="grid flex-grow h-32 card rounded-box place-items-center">
               <button
                 className="btn btn-outline"
-                id="joinWhitelistButton"
+                id="button-join-whitelist"
                 onClick={() => onJoinClick()}
               >
                 Join Whitelist Line
@@ -163,7 +163,7 @@ const Whitelist = () => {
             <div className="grid flex-grow h-32 card rounded-box place-items-center">
               <button
                 className="btn btn-outline"
-                id="getLinkButton"
+                id="button-get-link"
                 onClick={() => onGetLinkClick()}
               >
                 Your Invite Link

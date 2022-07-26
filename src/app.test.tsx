@@ -73,8 +73,8 @@ describe("Whitelist buttons", () => {
 
   async function openWhitelistAndButton(name: string) {
     render(<App />);
-    const Navbar = screen.getByTestId("navbar");
-    const whitelistButton = await within(Navbar).findByRole("link", {
+    const navbar = screen.getByTestId("navbar");
+    const whitelistButton = await within(navbar).findByRole("link", {
       name: /Whitelist/i,
     });
     userEvent.click(whitelistButton);
@@ -124,8 +124,8 @@ describe("Whitelist buttons", () => {
 describe("Navbar links", () => {
   async function findLinkByName(name: string) {
     render(<App />);
-    const Navbar = screen.getByTestId("navbar");
-    const link = await within(Navbar).findByRole("link", { name: name });
+    const navbar = screen.getByTestId("navbar");
+    const link = await within(navbar).findByRole("link", { name: name });
     return link;
   }
 

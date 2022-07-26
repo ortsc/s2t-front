@@ -2,9 +2,9 @@ name: Test React App
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build_test:
@@ -22,4 +22,4 @@ jobs:
         run: |
           npm install
           npm run build
-          npm run test      
+          npm run test
