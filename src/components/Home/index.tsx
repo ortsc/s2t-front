@@ -15,7 +15,7 @@ const Home = () => {
             className="max-h-80 rounded-lg drop-shadow-2xl"
             alt="Person with certificate"
           />
-          <div className="pr-16 max-w-xl">
+          <div className="max-w-xl">
             <h1 className="text-5xl font-bold">
               Get a <mark>professional certificate</mark> within 24 hours
             </h1>
@@ -43,7 +43,7 @@ const Home = () => {
             className="max-h-80 rounded-lg drop-shadow-2xl"
             alt="People voting"
           />
-          <div className="pl-16 max-w-xl">
+          <div className="max-w-xl">
             <h1 className="text-5xl font-bold">🧑 For the User</h1>
             <p className="py-6">
               When someone applies for a token with their skill portfolio, the
@@ -66,7 +66,7 @@ const Home = () => {
             className="max-h-80 rounded-lg drop-shadow-2xl"
             alt="A resume selected amongst many"
           />
-          <div className="pr-16 max-w-xl">
+          <div className="max-w-xl">
             <h1 className="text-5xl font-bold">For the Company 🏢</h1>
             <p className="py-6">
               Any recruiter you ask will tell you how hard it is to find the
@@ -87,7 +87,7 @@ const Home = () => {
             className="max-h-80 rounded-lg drop-shadow-2xl"
             alt="A line of people waiting their turn"
           />
-          <div className="pl-16 max-w-xl">
+          <div className="max-w-xl">
             <h1 className="text-5xl font-bold">❔ How it works</h1>
             <p className="py-6">
               A whitelist is a list of users allowed to do something before the

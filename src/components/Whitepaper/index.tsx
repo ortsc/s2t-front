@@ -14,7 +14,7 @@ const Whitepaper = () => {
           className="max-h-80 rounded-lg drop-shadow-2xl"
           alt="Women Reading"
         />
-        <div className="pr-16 max-w-xl">
+        <div className="max-w-xl">
           <h1 className="text-5xl font-bold">Read our whitepaper</h1>
           <p className="py-6">
             Our whitepaper was written with the goal to share our vision of the
