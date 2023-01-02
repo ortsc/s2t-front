@@ -93,7 +93,7 @@ const Whitelist = () => {
       const body = await getPostBody(result, indicator);
 
       axios
-        .post("http://localhost:5500/whitelist", body)
+        .post("http://api.skill2token.com/whitelist", body)
         .then(function (response) {
           if (response.status === 201) {
             successElement("button-join-whitelist", "Joined");
@@ -116,7 +116,7 @@ const Whitelist = () => {
     const result = await connectWallet("button-get-link", "Copied");
     if (result) {
       await copyTextToClipboard(
-        `http://localhost:3000/whitelist?indicator=${result.ans}`
+        `https://skill2token.com/whitelist?indicator=${result.ans}`
       );
     }
   };
