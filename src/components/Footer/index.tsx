@@ -51,7 +51,7 @@ const Whitepaper = () => {
           <a
             target="_blank"
             rel="noreferrer"
-            href="https://www.youtube.com/channel/UC4FPE-P9V-ssxhBAdZqAJzQ"
+            href="https://www.youtube.com/@skill2token"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
