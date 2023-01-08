@@ -1,37 +1,15 @@
-import { connectWallet } from "../ConnectWallet";
 import LinkGraphic from "../../images/link.svg";
 import InvestingGraphic from "../../images/investing.svg";
 import * as React from "react";
 import { setCookie } from "../Cookies";
 import { ethers } from "ethers";
 import { useLocation } from "react-router-dom";
+import { onGetLinkClick } from "../ConnectWallet";
 
 const discordApi =
   "https://discord.com/api/oauth2/authorize?client_id=1059594284979998800&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fjoin-whitelist&response_type=token&scope=identify%20guilds.join";
 
 const Whitelist = () => {
-  async function copyTextToClipboard(text: string) {
-    navigator.clipboard.writeText(text);
-  }
-
-  function loadingElement(id: string) {
-    const button = document.getElementById(id);
-    if (button != null) {
-      button.textContent = "Loading";
-      button.className = "btn btn-warning";
-    }
-  }
-
-  const onGetLinkClick = async () => {
-    loadingElement("button-get-link");
-    const result = await connectWallet("button-get-link", "Copied");
-    if (result) {
-      await copyTextToClipboard(
-        `https://skill2token.com/whitelist?indicator=${result.ans}`
-      );
-    }
-  };
-
   function useQuery() {
     const { search } = useLocation();
     return React.useMemo(() => new URLSearchParams(search), [search]);
@@ -83,7 +61,7 @@ const Whitelist = () => {
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://discord.gg/kPPnyYaxDm"
+              href="https://bit.ly/s2t-discord"
               className="link link-primary"
             >
               S2T Discord

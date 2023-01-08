@@ -4,32 +4,8 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { connectWallet } from "../ConnectWallet";
 import { getCookie } from "../Cookies";
-
+import { successElement, loadingElement, errorElement } from "../ChangeElement";
 const JoinWhitelist = () => {
-  function successElement(id: string, successMessage: string) {
-    const button = document.getElementById(id);
-    if (button != null) {
-      button.textContent = "Joined";
-      button.className = "btn btn-success";
-    }
-  }
-
-  function loadingElement(id: string) {
-    const button = document.getElementById(id);
-    if (button != null) {
-      button.textContent = "Loading";
-      button.className = "btn btn-warning";
-    }
-  }
-
-  function errorElement(id: string) {
-    const button = document.getElementById(id);
-    if (button != null) {
-      button.textContent = "Error";
-      button.className = "btn btn-error";
-    }
-  }
-
   function getValidIndicator(address: string) {
     const indicator = getCookie("indicator");
     if (

@@ -69,7 +69,7 @@ const Community = () => {
                   className="btn btn-primary"
                   target="_blank"
                   rel="noreferrer"
-                  href="https://discord.gg/kPPnyYaxDm"
+                  href="https://bit.ly/s2t-discord"
                 >
                   Join
                 </a>

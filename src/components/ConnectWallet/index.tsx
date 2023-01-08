@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import { loadingElement, errorElement } from "../ChangeElement";
 
 async function requestAccount() {
   if (window.ethereum) {
@@ -25,14 +26,26 @@ export async function connectWallet(buttonId: string, connectedText: string) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       return { ans: reqAns, prov: provider };
     } else if (button != null) {
-      button.textContent = "Error";
-      button.className = "btn btn-error";
+      errorElement(buttonId);
     }
   } else {
     const button = document.getElementById(buttonId);
     if (button != null) {
-      button.textContent = "404";
-      button.className = "btn btn-error";
+      errorElement(buttonId);
     }
   }
 }
+
+async function copyTextToClipboard(text: string) {
+  navigator.clipboard.writeText(text);
+}
+
+export const onGetLinkClick = async () => {
+  loadingElement("button-get-link");
+  const result = await connectWallet("button-get-link", "Copied");
+  if (result) {
+    await copyTextToClipboard(
+      `https://skill2token.com/whitelist?indicator=${result.ans}`
+    );
+  }
+};
