@@ -54,7 +54,7 @@ describe("Connect web3 wallet", () => {
     await renderClickConnect();
     const errorButton = await waitFor(() =>
       screen.findByRole("button", {
-        name: /404/i,
+        name: /Error/i,
       })
     );
     expect(errorButton).toBeInTheDocument();
@@ -120,7 +120,7 @@ describe("Whitelist buttons", () => {
     userEvent.click(await openWhitelistAndButton("Your Invite Link"));
     const errorButton = await waitFor(() =>
       screen.findByRole("button", {
-        name: /404/i,
+        name: /Error/i,
       })
     );
     expect(errorButton).toBeInTheDocument();
