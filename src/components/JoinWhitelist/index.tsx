@@ -63,7 +63,7 @@ const JoinWhitelist = () => {
       const body = await getPostBody(result, indicator, tokenType, accessToken);
 
       axios
-        .post("http://localhost:5500/whitelist", body)
+        .post("http://skill2token.com/whitelist", body)
         .then(function (response) {
           if (response.status === 201) {
             successElement("button-join-whitelist", "Joined");
