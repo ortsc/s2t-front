@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { onGetLinkClick } from "../ConnectWallet";
 
 const discordApi =
-  "https://discord.com/api/oauth2/authorize?client_id=1059594284979998800&redirect_uri=https%3A%2F%2Fskill2token.com%2Fjoin-whitelist&response_type=code&scope=identify%20guilds.join";
+  "https://discord.com/api/oauth2/authorize?client_id=1059594284979998800&redirect_uri=https%3A%2F%2Fskill2token.com%2Fjoin-whitelist&response_type=token&scope=identify%20guilds.join";
 
 const Whitelist = () => {
   function useQuery() {
