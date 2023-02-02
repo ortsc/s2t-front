@@ -69,7 +69,7 @@ const Whitepaper = () => {
           </a>
           .
         </p>
-        <p>Copyright © 2022 - All right reserved by Skill2Token</p>
+        <p>Copyright © 2022-2023 - All right reserved by Skill2Token</p>
       </div>
     </footer>
   );
