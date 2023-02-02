@@ -70,14 +70,20 @@ const JoinWhitelist = () => {
             navigate("/success");
           } else {
             errorElement("button-join-whitelist");
+            console.log(response.status);
           }
         })
-        .catch(function () {
-          errorElement("button-join-whitelist");
-          return;
-        });
-    } catch {
+        .catch(
+          (error) =>
+            function () {
+              errorElement("button-join-whitelist");
+              console.log(error);
+              return;
+            }
+        );
+    } catch (error) {
       errorElement("button-join-whitelist");
+      console.log(error);
       return;
     }
   };
