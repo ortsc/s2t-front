@@ -1,3 +1,4 @@
+# ⚠️ This project has been abandoned
 # Skill2Token Website
 
 [![build](https://github.com/skill2token/website/actions/workflows/test.yml/badge.svg)](https://github.com/skill2token/website/actions/workflows/test.yml) [![website](https://img.shields.io/website?down_color=red&down_message=down&style=plastic&up_color=green&up_message=up&url=https%3A%2F%2Fskill2token.com%2F)](https://skill2token.com)[![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=plastic&logo=Gmail&logoColor=white)](mailto:contact@skill2token.com)
